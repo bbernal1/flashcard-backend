@@ -8,7 +8,6 @@ import com.jpcards.backend.domain.Flashcard;
 
 
 public interface CardRepository extends MongoRepository<Flashcard, String> {
-
 	List<Flashcard> findAll();
 	
 }
