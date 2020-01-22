@@ -3,9 +3,9 @@ package com.jpcards.backend.domain;
 import org.springframework.data.annotation.Id;
 
 public class Flashcard {
+	
 	@Id
 	private String id;
-
 	private String word;
 	private String translation;
 
