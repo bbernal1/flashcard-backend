@@ -1,31 +1,36 @@
 package com.jpcards.backend;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.jpcards.backend.domain.Flashcard;
+import com.jpcards.backend.repository.CardRepository;
+
 
 @SpringBootApplication
-public class BackendApplication {
+public class BackendApplication implements CommandLineRunner{
 
 
-//	@Autowired
-//	private CardRepository repository;
+	@Autowired
+	private CardRepository repository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
-//	@Override
-//	public void run(String... args) throws Exception {
-//		// TODO Auto-generated method stub
-//
-//		for (Flashcard card : repository.findAll()) {
-//
-//		      System.out.println(card.getId());
-//		      System.out.println(card.getWord());
-//		      System.out.println(card.getDefinition());
-//		    }
-//	}
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+
+		for (Flashcard card : repository.findAll()) {
+
+		      System.out.println("ID: " + card.getId() + " Word: " + card.getWord() + " Translation: " + card.getTranslation());
+
+		    }
+
+	}
 
 }

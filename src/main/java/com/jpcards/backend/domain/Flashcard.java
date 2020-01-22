@@ -7,7 +7,7 @@ public class Flashcard {
 	private String id;
 
 	private String word;
-	private String definition;
+	private String translation;
 
 	public String getId() {
 		return id;
@@ -25,12 +25,13 @@ public class Flashcard {
 		this.word = word;
 	}
 
-	public String getDefinition() {
-		return definition;
+	public String getTranslation() {
+		return translation;
 	}
 
-	public void setDefinition(String definition) {
-		this.definition = definition;
+	public void setTranslation(String translation) {
+		this.translation = translation;
 	}
+
 
 }
