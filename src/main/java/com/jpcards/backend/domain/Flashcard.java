@@ -1,5 +1,6 @@
 package com.jpcards.backend.domain;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
@@ -13,7 +14,7 @@ public class Flashcard {
 	private double easiness;
 	private int repetitions;
 	private int interval;
-	private LocalDateTime dueDate;
+	private Instant dueDate;
 	
 	public String getId() {
 		return id;
@@ -55,13 +56,7 @@ public class Flashcard {
 		this.interval = interval;
 	}
 
-	public LocalDateTime getDueDate() {
-		return dueDate;
-	}
 
-	public void setDueDate(LocalDateTime dueDate) {
-		this.dueDate = dueDate;
-	}
 
 	public int getRepetitions() {
 		return repetitions;
@@ -69,6 +64,14 @@ public class Flashcard {
 
 	public void setRepetitions(int repetitions) {
 		this.repetitions = repetitions;
+	}
+
+	public Instant getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(Instant dueDate) {
+		this.dueDate = dueDate;
 	}
 
 
