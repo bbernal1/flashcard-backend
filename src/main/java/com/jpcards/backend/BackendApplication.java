@@ -23,13 +23,11 @@ public class BackendApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
 
 		for (Flashcard card : repository.findAll()) {
-
-		      System.out.println("ID: " + card.getId() + " Word: " + card.getWord() + " Translation: " + card.getTranslation());
-
-		    }
+		      System.out.println("ID: " + card.getId() + "\nWord: " + card.getWord() + "\nTranslation: " + card.getTranslation() +
+		    		  "\nDueDate: " + card.getDueDate().toString() + "\n");
+		}
 
 	}
 

@@ -1,6 +1,9 @@
 package com.jpcards.backend.restservice;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +14,11 @@ import com.jpcards.backend.repository.CardRepository;
 public class FlashcardController {
 	
 	@Autowired
-	private CardRepository repository;	
+	private CardRepository repository;
 	
-	@GetMapping("/getCard")
-	public Flashcard getCard() {
-		return repository.findAll().get(0);
+	@CrossOrigin
+	@GetMapping("/getCards")
+	public List<Flashcard> getCard() {
+		return repository.findAll();
 	}
 }
