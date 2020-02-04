@@ -1,6 +1,8 @@
 package com.jpcards.backend;
 
 
+import java.time.Instant;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +15,6 @@ import com.jpcards.backend.repository.CardRepository;
 @SpringBootApplication
 public class BackendApplication implements CommandLineRunner{
 
-
 	@Autowired
 	private CardRepository repository;
 
@@ -24,7 +25,7 @@ public class BackendApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		for (Flashcard card : repository.findAll()) {
+		for (Flashcard card : repository.findByDueDateLessThan(Instant.now())) {
 		      System.out.println("ID: " + card.getId() + "\nWord: " + card.getWord() + "\nTranslation: " + card.getTranslation() +
 		    		  "\nDueDate: " + card.getDueDate().toString() + "\n");
 		}
