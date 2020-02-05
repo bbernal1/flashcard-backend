@@ -2,6 +2,7 @@ package com.jpcards.backend;
 
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,8 +25,8 @@ public class BackendApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		for (Flashcard card : repository.findByDueDateLessThan(Instant.now())) {
+		System.out.println("hey");
+		for (Flashcard card : repository.findByDueDateLessThanEqual(LocalDate.now())) {
 		      System.out.println("ID: " + card.getId() + "\nWord: " + card.getWord() + "\nTranslation: " + card.getTranslation() +
 		    		  "\nDueDate: " + card.getDueDate().toString() + "\n");
 		}

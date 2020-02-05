@@ -1,5 +1,6 @@
 package com.jpcards.backend.restservice;
 
+import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
 
@@ -21,6 +22,11 @@ public class FlashcardController {
 	public List<Flashcard> getCards() {
 		List<Flashcard> cards = repository.findAll();
 		Collections.shuffle(cards);
+		return cards;
+	}
+	@GetMapping("/getSched")
+	public List<Flashcard> getSched() {
+		List<Flashcard> cards = repository.findByDueDateLessThanEqual(LocalDate.now());
 		return cards;
 	}
 }

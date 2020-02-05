@@ -1,7 +1,6 @@
 package com.jpcards.backend.algo;
 
-import java.time.LocalDateTime;
-import java.time.*;
+import java.time.LocalDate;
 import com.jpcards.backend.domain.Flashcard;
 
 public class Sm2Impl {
@@ -19,7 +18,7 @@ public class Sm2Impl {
 		this.updateEasiness();
 		this.updateReps();
 		this.updateInterval();
-		Instant dueDate = this.flashcard.getDueDate().plus(Period.ofDays(this.flashcard.getInterval()));
+		LocalDate dueDate = this.flashcard.getDueDate().plusDays(this.flashcard.getInterval());
 		this.flashcard.setDueDate(dueDate);
 	}
 	

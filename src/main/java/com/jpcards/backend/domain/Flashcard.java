@@ -1,10 +1,11 @@
 package com.jpcards.backend.domain;
 
-import java.time.Instant;
-
+import java.time.LocalDate;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "Testing")
 public class Flashcard {
 	
 	@Id
@@ -14,7 +15,7 @@ public class Flashcard {
 	private double easiness;
 	private int repetitions;
 	private int interval;
-	private Instant dueDate;
+	private LocalDate dueDate;
 	
 	public String getId() {
 		return id;
@@ -66,13 +67,15 @@ public class Flashcard {
 		this.repetitions = repetitions;
 	}
 
-	public Instant getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(Instant dueDate) {
+	public void setDueDate(LocalDate dueDate) {
 		this.dueDate = dueDate;
 	}
+
+
 
 
 }
