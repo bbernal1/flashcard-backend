@@ -1,13 +1,13 @@
 package com.jpcards.backend.domain;
 
 import java.time.LocalDate;
-
+import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Testing")
 public class Flashcard {
-	
+
 	@Id
 	private String id;
 	private String word;
@@ -15,8 +15,8 @@ public class Flashcard {
 	private double easiness;
 	private int repetitions;
 	private int interval;
-	private LocalDate dueDate;
-	
+	private LocalDateTime dueDate;
+
 	public String getId() {
 		return id;
 	}
@@ -41,11 +41,11 @@ public class Flashcard {
 		this.translation = translation;
 	}
 
-	public Double getEasiness() {
+	public double getEasiness() {
 		return easiness;
 	}
 
-	public void setEasiness(Double easiness) {
+	public void setEasiness(double easiness) {
 		this.easiness = easiness;
 	}
 
@@ -57,8 +57,6 @@ public class Flashcard {
 		this.interval = interval;
 	}
 
-
-
 	public int getRepetitions() {
 		return repetitions;
 	}
@@ -67,15 +65,11 @@ public class Flashcard {
 		this.repetitions = repetitions;
 	}
 
-	public LocalDate getDueDate() {
+	public LocalDateTime getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(LocalDate dueDate) {
-		this.dueDate = dueDate;
+	public void setDueDate(LocalDateTime localDate) {
+		this.dueDate = localDate;
 	}
-
-
-
-
 }

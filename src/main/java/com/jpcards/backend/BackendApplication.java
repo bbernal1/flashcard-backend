@@ -1,14 +1,10 @@
 package com.jpcards.backend;
 
-
-import java.time.Instant;
 import java.time.LocalDate;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import com.jpcards.backend.domain.Flashcard;
 import com.jpcards.backend.repository.CardRepository;
 
@@ -32,5 +28,4 @@ public class BackendApplication implements CommandLineRunner{
 		}
 
 	}
-
 }

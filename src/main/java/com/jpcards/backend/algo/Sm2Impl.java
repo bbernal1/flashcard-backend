@@ -1,13 +1,13 @@
 package com.jpcards.backend.algo;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import com.jpcards.backend.domain.Flashcard;
 
 public class Sm2Impl {
 	private Flashcard flashcard;
 	private int quality;
 	//calculate repetitions based on quality received from user input
-	Sm2Impl(Flashcard flashcard, int quality) {
+	public Sm2Impl(Flashcard flashcard, int quality) {
 		this.flashcard = flashcard;
 		this.quality = quality;
 	}
@@ -18,7 +18,7 @@ public class Sm2Impl {
 		this.updateEasiness();
 		this.updateReps();
 		this.updateInterval();
-		LocalDate dueDate = this.flashcard.getDueDate().plusDays(this.flashcard.getInterval());
+		LocalDateTime dueDate = this.flashcard.getDueDate().plusHours(this.flashcard.getInterval());
 		this.flashcard.setDueDate(dueDate);
 	}
 	
@@ -45,7 +45,7 @@ public class Sm2Impl {
 	}
 	
 	private void updateEasiness() {
-		flashcard.setEasiness(Math.max(1.3, flashcard.getEasiness() + 0.1 - (5.0 - this.quality) * (0.08 + (5.0 - this.quality) * 0.02)));
+		flashcard.setEasiness(Math.min(Math.max(1.3, flashcard.getEasiness() + 0.1 - (5.0 - this.quality) * (0.08 + (5.0 - this.quality) * 0.02)),2.5));
 	}
 		
 	
