@@ -1,7 +1,7 @@
 package com.jpcards.backend.repository;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +15,6 @@ public interface CardRepository extends MongoRepository<Flashcard, String> {
 	
 	//List<Flashcard> findAll();
 	//Optional<Flashcard> findById(String primaryKey);
-	List<Flashcard> findByDueDateLessThanEqual(LocalDate dueDate);
+	List<Flashcard> findByDueDateLessThanEqual(LocalDateTime dueDate);
 	//Flashcard save(Flashcard entity);
 }

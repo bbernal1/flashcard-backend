@@ -1,10 +1,10 @@
 package com.jpcards.backend.restservice;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,6 +30,7 @@ public class FlashcardController {
 		Collections.shuffle(cards);
 		return cards;
 	}
+	
 	@CrossOrigin
 	@PutMapping("/flashcards/{quality}")
 	public Flashcard updateDueDate(@RequestBody Flashcard flashcard, @PathVariable int quality) {
@@ -49,7 +50,7 @@ public class FlashcardController {
 	@CrossOrigin
 	@GetMapping("/getSched")
 	public List<Flashcard> getSched() {
-		List<Flashcard> cards = repository.findByDueDateLessThanEqual(LocalDate.now());
+		List<Flashcard> cards = repository.findByDueDateLessThanEqual(LocalDateTime.now());
 		return cards;
 	}
 }
