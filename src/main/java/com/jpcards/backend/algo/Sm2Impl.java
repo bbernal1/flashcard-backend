@@ -18,7 +18,7 @@ public class Sm2Impl {
 		this.updateEasiness();
 		this.updateReps();
 		this.updateInterval();
-		LocalDateTime dueDate = this.flashcard.getDueDate().plusHours(this.flashcard.getInterval());
+		LocalDateTime dueDate = LocalDateTime.now().plusHours(this.flashcard.getInterval());
 		this.flashcard.setDueDate(dueDate);
 	}
 	

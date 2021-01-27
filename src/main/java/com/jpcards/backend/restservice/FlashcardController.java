@@ -1,6 +1,4 @@
 package com.jpcards.backend.restservice;
-
-
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +22,7 @@ public class FlashcardController {
 	private CardRepository repository;
 	
 	@CrossOrigin
-	@GetMapping("/getCards")
+	@GetMapping("/flashcards")
 	public List<Flashcard> getCards() {
 		List<Flashcard> cards = repository.findAll();
 		Collections.shuffle(cards);
@@ -32,7 +30,7 @@ public class FlashcardController {
 	}
 	
 	@CrossOrigin
-	@PutMapping("/flashcards/{quality}")
+	@PutMapping("/flashcard/{quality}")
 	public Flashcard updateDueDate(@RequestBody Flashcard flashcard, @PathVariable int quality) {
 		//get entity
 		Optional<Flashcard> ent = repository.findById(flashcard.getId());
@@ -45,10 +43,10 @@ public class FlashcardController {
 		else {
 			return null;
 		}
-		
 	}
+
 	@CrossOrigin
-	@GetMapping("/getSched")
+	@GetMapping("/scheduled")
 	public List<Flashcard> getSched() {
 		List<Flashcard> cards = repository.findByDueDateLessThanEqual(LocalDateTime.now());
 		return cards;
