@@ -11,7 +11,7 @@ import com.jpcards.backend.repository.CardRepository;
 
 
 @SpringBootApplication
-public class BackendApplication implements CommandLineRunner{
+public class BackendApplication implements CommandLineRunner {
 
 	@Autowired
 	private CardRepository repository;
