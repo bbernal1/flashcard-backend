@@ -1,6 +1,9 @@
 package com.jpcards.backend.algo;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+
 import com.jpcards.backend.domain.Flashcard;
 
 public class Sm2Impl {
@@ -18,8 +21,11 @@ public class Sm2Impl {
 		this.updateEasiness();
 		this.updateReps();
 		this.updateInterval();
-		LocalDateTime dueDate = LocalDateTime.now().plusHours(this.flashcard.getInterval());
-		this.flashcard.setDueDate(dueDate);
+		LocalDateTime dueDate = LocalDateTime.now().plusDays(this.flashcard.getInterval());
+//		DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+//		System.out.println(dueDate.format(formatter));
+		this.flashcard.setDueDate(dueDate.toEpochSecond(ZoneOffset.UTC));
+//		System.out.println(this.flashcard.getDueDate());
 	}
 	
 	private void updateReps() {

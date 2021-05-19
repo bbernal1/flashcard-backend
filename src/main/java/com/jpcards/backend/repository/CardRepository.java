@@ -12,5 +12,6 @@ public interface CardRepository extends MongoRepository<Flashcard, String> {
 	// List<Flashcard> findAll();
 	// Optional<Flashcard> findById(String primaryKey);
 	List<Flashcard> findByDueDateLessThanEqual(LocalDateTime dueDate);
+	//void delete(Flashcard entity);
 	// Flashcard save(Flashcard entity);
 }

@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Testing")
+@Document(collection = "jp")
 public class Flashcard {
 
 	@Id
@@ -14,8 +14,8 @@ public class Flashcard {
 	private double easiness;
 	private int repetitions;
 	private int interval;
-	private LocalDateTime dueDate;
-
+	private long dueDate;
+	private String reading;
 	public String getId() {
 		return id;
 	}
@@ -64,11 +64,19 @@ public class Flashcard {
 		this.repetitions = repetitions;
 	}
 
-	public LocalDateTime getDueDate() {
+	public long getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(LocalDateTime localDate) {
+	public void setDueDate(long localDate) {
 		this.dueDate = localDate;
+	}
+
+	public String getReading() {
+		return reading;
+	}
+
+	public void setReading(String reading) {
+		this.reading = reading;
 	}
 }

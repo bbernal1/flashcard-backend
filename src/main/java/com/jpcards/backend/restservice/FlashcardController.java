@@ -1,12 +1,15 @@
 package com.jpcards.backend.restservice;
 import java.time.LocalDateTime;
-import java.util.Collections;
+import java.time.ZoneOffset;
+//import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,9 +27,27 @@ public class FlashcardController {
 	@CrossOrigin
 	@GetMapping("/flashcards")
 	public List<Flashcard> getCards() {
+		System.out.println("Getting cards");
 		List<Flashcard> cards = repository.findAll();
-		Collections.shuffle(cards);
+		//Collections.shuffle(cards);
 		return cards;
+	}
+	
+	@CrossOrigin
+	@DeleteMapping("/flashcards/{id}")
+	public void deleteFlashcard(@PathVariable String id) {
+		System.out.println("Deleting card");
+		Optional<Flashcard> ent = repository.findById(id);
+		Flashcard flashcard = ent.get();
+		repository.delete(flashcard);
+	}
+	
+	@CrossOrigin
+	@PostMapping("/flashcards")
+	public Flashcard newFlashcard(@RequestBody Flashcard newFlashcard) {
+		System.out.println("Adding card");
+		newFlashcard.setDueDate(LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
+		return repository.save(newFlashcard);
 	}
 	
 	@CrossOrigin
@@ -51,4 +72,6 @@ public class FlashcardController {
 		List<Flashcard> cards = repository.findByDueDateLessThanEqual(LocalDateTime.now());
 		return cards;
 	}
+	
+	
 }
