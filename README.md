@@ -1,6 +1,6 @@
 
 ## Flashcard Application using Java
-## The backend API can be accessed via the following URLs: 
+The backend API can be accessed via the following URLs: 
 https://jpflashcards.herokuapp.com/flashcards
 
 This is a pet project to display skills in using Java and Angular to create a fullstack application. I personally have an interest in learning Japanese and discovered Spaced Repetition applications such as Anki and Memrise which help in learning vocabulary. Therefore, I thought I could combine my passion for programming and create an application of my own that uses a Spaced Repetition algorithm to help me learn Japanese. This app is primarily for learning purposes and as a result will be constantly changing as my skills in Java increase.
