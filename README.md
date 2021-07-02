@@ -35,13 +35,13 @@ This section of the application will review all cards
 This section will review cards that are due today or past due
 
 ### Version History
-version 0.1.0
+version 0.1.0  
 Started project and created MongoDB database
 
-version 0.2.0
+version 0.2.0  
 Added domain class 
 
-version 0.3.0
+version 0.3.0  
 Added API for retrieving all cards in database
 
 version 1.0.0  
