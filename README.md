@@ -44,4 +44,7 @@ Added domain class
 version 0.3.0
 Added API for retrieving all cards in database
 
+version 1.0.0  
+Major features of application are finished
+
 
