@@ -64,14 +64,5 @@ public class FlashcardController {
 		else {
 			return null;
 		}
-	}
-
-	@CrossOrigin
-	@GetMapping("/scheduled")
-	public List<Flashcard> getSched() {
-		List<Flashcard> cards = repository.findByDueDateLessThanEqual(LocalDateTime.now());
-		return cards;
-	}
-	
-	
+	}	
 }
