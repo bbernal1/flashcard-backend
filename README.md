@@ -1,10 +1,12 @@
 
-# Flashcard Application using Java
-# Soon to be hosted publically.
+## Flashcard Application backend using Java
+## The associated frontend application can be found at https://github.com/bbernal1/flashcard-backend
+## The backend API is hosted and the data can be accessed via the following URLs:
+https://jpflashcards.herokuapp.com/flashcards
 
-This is a pet project to display skills in using Java and Angular to create a fullstack application. I personally have an interest in learning Japanese and discovered Spaced Repetition applications such as Anki and Memrise which help in learning vocabulary. Therefore, I thought I could combine my passion for programming and create an application of my own that uses a Spaced Repetition algorithm to help me learn Japanese. This app is primarily for learning purposes and as a result will be constantly changing as my skills in Java increase.
 
-This application is used to retrieve data from a MongoDB database which persists the flashcard information. This application then uses RESTful APIs to send the required data to the frontend Angular application which is found at https://github.com/bbernal1/flashcard-frontend
+
+This application is used to retrieve data from a MongoDB database via the aforementioned URLs. 
 
 #### The MongoDB Document structure is as follows:
 ObjectId id;
@@ -34,13 +36,16 @@ This section of the application will review all cards
 This section will review cards that are due today or past due
 
 ### Version History
-version 0.1.0
+version 0.1.0  
 Started project and created MongoDB database
 
-version 0.2.0
+version 0.2.0  
 Added domain class 
 
-version 0.3.0
+version 0.3.0  
 Added API for retrieving all cards in database
+
+version 1.0.0  
+Major features of application are finished
 
 
