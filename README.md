@@ -1,18 +1,62 @@
 
-## Flashcard Application backend using Java
-## The associated frontend application can be found at https://github.com/bbernal1/flashcard-backend
-## The backend API is hosted and the data can be accessed via the following URLs:
+### Flashcard Application backend using Java
+
+This is a pet project to display skills in using Java and Angular to create a fullstack application. I have an interest in learning Japanese and discovered spaced repetition(SRS) flashcard applications such as Anki and Memrise which help in learning the language. Therefore, I decided to create my own SRS flashcard application in order to practice my programming skills and relate it to my interest in Japanese language learning.
+
+#### The backend API is hosted and the data can be accessed/modified via the following URLs:
+GET:
 https://jpflashcards.herokuapp.com/flashcards
+This URL is used to retrieve all of the flashcards in the 
 
+DELETE:
+https://jpflashcards.herokuapp.com/flashcards/flashcards/{id}
+This URL is used to delete a card that has the {id} number
 
+POST:
+https://jpflashcards.herokuapp.com/flashcards
+This URL is used to add a new flashcard to the database
 
-This application is used to retrieve data from a MongoDB database via the aforementioned URLs. 
+PUT:
+https://jpflashcards.herokuapp.com/flashcard/{quality}
+This URL is used to update the flashcard that is passed in the request body with a new {quality} rating
 
-#### The MongoDB Document structure is as follows:
+##### The associated frontend application can be found at https://github.com/bbernal1/flashcard-backend
+
+#### Description
+##### Class
+com.jpcards.backend.BackendApplication.java
+##### Description
+This class is responsible for running the Spring Boot application
+##### Class
+com.jpcards.backend.restservice.FlashcardController.java
+##### Description
+This class is annotated with @RestController and it contains the handler methods for the API calls.
+##### Class
+com.jpcards.backend.repository.CardRepository.java
+##### Description
+This class extends the MongoRepository class which has default CRUD methods for a mongoDB collection
+##### Class
+com.jpcards.backend.domain.Flashcard.java
+##### Description
+This class contains the @Document annotation with the name of the collection in the mongoDB database. The class properties matches the MongoDB document structure for the flashcards along with getters and setters for these properties.
+##### Class
+com.jpcards.backend.algo.Sm2Impl.java
+##### Description
+This class contains methods used in the calculation of due dates for the card review feature. The review due dates are calculated using the SM2 Algorithm from https://www.supermemo.com/en/archives1990-2015/english/ol/sm2
+Algorithm:
+1. Calculate and store the new easiness rating for the card. The easiness rating is calculated using a quality value which is retrieved from https://jpflashcards.herokuapp.com/flashcard/{quality}. The formula used is: easiness = Math.min(Math.max(1.3, easiness + 0.1 - (5.0 - {quality}) * (0.08 + (5.0 - {quality}) * 0.02)),2.5)
+2. Calculate the new repetition value for the card. The repetition is calculated by the following:  
+if (quality < 3) {  
+ reptition = 0  
+}  
+else {  
+ repetitions = repetitions + 1  
+}  
+#### MongoDB Database structure:
 ObjectId id;
 String word;
 String translation;
- Double easiness;
+Double easiness;
 Int32 repetitions;
 Int32 interval;
 TimeStamp dueDate;
@@ -26,14 +70,7 @@ com.jpcards.backend.domain.Flashcard
 3. Run Frontend Application at https://github.com/bbernal1/flashcard-frontend
 3. Run spring boot application which contains embedded application server.
 
-## Features
-### Retrieve All Cards API
-Any URL should redirect to Homepage. This page contains information about the app and links to the Card Review mode and SRS Review mode
-### Review All Cards
-This section of the application will review all cards
 
-### Review Scheduled Cards
-This section will review cards that are due today or past due
 
 ### Version History
 version 0.1.0  
