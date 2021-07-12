@@ -41,7 +41,7 @@ The program is written using the Sprint Boot framework with support for MongoDB 
 **Description:** This class contains methods used in the calculation of due dates for the card review feature. The review due dates are calculated using the SM2 Algorithm from https://www.supermemo.com/en/archives1990-2015/english/ol/sm2. An implementation of the algorithm is discussed in the following section
 
 ### Due Date Calculation Algorithm
-1. Calculate and store the new easiness rating for the card. The easiness rating is calculated using a quality value which is retrieved from https://jpflashcards.herokuapp.com/flashcard/{quality}. The formula used is: easiness = Math.min(Math.max(1.3, easiness + 0.1 - (5.0 - quality) * (0.08 + (5.0 - quality) * 0.02)),2.5)
+1. Calculate and store the new easiness rating for the card. The easiness rating is calculated using a quality value which is retrieved from jpflashcards.herokuapp.com/flashcard/{quality}. The formula used is: easiness = Math.min(Math.max(1.3, easiness + 0.1 - (5.0 - quality) * (0.08 + (5.0 - quality) * 0.02)),2.5)
 2. Calculate the new repetition value for the card. The repetition is calculated by the following:  
 if (quality < 3) {  
 &emsp;&emsp;repetitions = 0  
