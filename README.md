@@ -1,6 +1,7 @@
 ## Flashcard Application backend using Java
+
 ### Summary
-This is a pet project to display skills in using Java and Angular to create a fullstack application. I have an interest in learning Japanese and discovered spaced repetition(SRS) flashcard applications such as Anki and Memrise which help in learning the language. Therefore, I decided to create my own SRS flashcard application in order to practice my programming skills and relate it to my interest in Japanese language learning.
+This is part of a pet project to display skills in using Java with the Spring Boot framework and Typescript with the Angular framework to create a fullstack application. I have an interest in learning Japanese and discovered spaced repetition(SRS) flashcard applications such as Anki and Memrise which help in learning the language. Therefore, I decided to create my own SRS flashcard application in order to practice my programming skills and relate it to my interest in Japanese language learning.
 
 **The backend API is hosted and the data can be accessed/modified via the following URLs:**  
 GET:
@@ -39,24 +40,24 @@ The program is written using the Sprint Boot framework with support for MongoDB 
 **Class:** com.jpcards.backend.algo.Sm2Impl.java  
 **Description:** This class contains methods used in the calculation of due dates for the card review feature. The review due dates are calculated using the SM2 Algorithm from https://www.supermemo.com/en/archives1990-2015/english/ol/sm2. An implementation of the algorithm is discussed in the following section
 
-### Algorithm
-1. Calculate and store the new easiness rating for the card. The easiness rating is calculated using a quality value which is retrieved from https://jpflashcards.herokuapp.com/flashcard/{quality}. The formula used is: easiness = Math.min(Math.max(1.3, easiness + 0.1 - (5.0 - {quality}) * (0.08 + (5.0 - {quality}) * 0.02)),2.5)
+### Due Date Calculation Algorithm
+1. Calculate and store the new easiness rating for the card. The easiness rating is calculated using a quality value which is retrieved from https://jpflashcards.herokuapp.com/flashcard/{quality}. The formula used is: easiness = Math.min(Math.max(1.3, easiness + 0.1 - (5.0 - quality) * (0.08 + (5.0 - quality) * 0.02)),2.5)
 2. Calculate the new repetition value for the card. The repetition is calculated by the following:  
 if (quality < 3) {  
-    reptition = 0  
+&emsp;&emsp;repetitions = 0  
 }  
 else {  
-    repetitions = repetitions + 1  
+&emsp;&emsp;repetitions = repetitions + 1  
 }  
-3. Calculate the new intervval value for the card. The interval is the amount of days that must pass until the card is due for review. The interval is calculated by the following:  
+3. Calculate the new interval value for the card. The interval is the amount of days that must pass until the card is due for review. The interval is calculated by the following:  
 if (repetitions <= 1) {  
-    interval = 1;  
+&emsp;&emsp;interval = 1;  
 }  
-else if (reps == 2) {  
-    this.flashcard.setInterval(6);  
+else if (repetitions == 2) {  
+&emsp;&emsp;interval = 6;  
 }  
 else {  
-    this.flashcard.setInterval((int)Math.round(this.flashcard.getInterval() * this.flashcard.getEasiness()));  
+&emsp;&emsp;interval = Math.round(interval * easiness);  
 }  
 4. Calculate and set the new due date by the following:  
 dueDate = dueDate + interval
@@ -71,7 +72,7 @@ Int32 repetitions;
 Int32 interval;  
 TimeStamp dueDate;
 
-### Version History
+### Version HistoryKING POGGERS 
 version 0.1.0  
 Started project and created MongoDB database
 
