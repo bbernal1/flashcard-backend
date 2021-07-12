@@ -72,7 +72,7 @@ Int32 repetitions;
 Int32 interval;  
 TimeStamp dueDate;
 
-### Version HistoryKING POGGERS 
+### Version History
 version 0.1.0  
 Started project and created MongoDB database
 
