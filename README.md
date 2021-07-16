@@ -5,19 +5,19 @@ This is part of a pet project to display skills in using Java with the Spring Bo
 
 **The backend API is hosted and the data can be accessed/modified via the following URLs:**  
 GET:
-https://jpflashcards.herokuapp.com/flashcards
+https://jpcardsbackend.herokuapp.com/flashcards
 This URL is used to retrieve all of the flashcards in the 
 
 DELETE:
-https://jpflashcards.herokuapp.com/flashcards/flashcards/{id}
+https://jpcardsbackend.herokuapp.com/flashcards/flashcards/{id}
 This URL is used to delete a card that has the {id} number
 
 POST:
-https://jpflashcards.herokuapp.com/flashcards
+https://jpcardsbackend.herokuapp.com/flashcards
 This URL is used to add a new flashcard to the database
 
 PUT:
-https://jpflashcards.herokuapp.com/flashcard/{quality}
+https://jpcardsbackend.herokuapp.com/flashcard/{quality}
 This URL is used to update the flashcard that is passed in the request body with a new {quality} rating
 
 **The associated frontend application can be found at https://github.com/bbernal1/flashcard-frontend**
